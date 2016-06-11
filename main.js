@@ -46,7 +46,6 @@ inputNode.addEventListener('keydown',handleItemAdd)
 
 // Task 3
 
-
 var guestList2 = document.querySelector(".answer-box3 .guest-list")
 var inputNode2 = document.querySelector('.answer-box3 input[type="text"]')
 var handleItemAdd2 = function(eventObj) {
@@ -55,25 +54,37 @@ var handleItemAdd2 = function(eventObj) {
 		var liNode2 = document.createElement('li')
 		var buttonNode = document.createElement('button')
 		liNode2.textContent = usrText2
-		guestList2.innerHTML += '<li id="task3" display="inline-block">' + usrText2 + '<button id="Rmv">X</button>' + '</li>'
-      
+    liNode2.style.display = 'inline-block'
+    buttonNode.textContent = "X"
+		guestList2.appendChild(liNode2)
+    guestList2.appendChild(buttonNode)
       inputNode2.value = ''
-  	}
+  }
+
+  var rmvNode = document.querySelector('.answer-box3 button')
+
+  var handleItemRemove = function(){
+  guestList2.removeChild(liNode2)
+  guestList2.removeChild(buttonNode)
+  }
+
+  rmvNode.addEventListener('click',handleItemRemove)
+
 }
+
+
 inputNode2.addEventListener('keydown',handleItemAdd2)
 
 
 
 
 
-var rmvNode = document.querySelectorAll('button#Rmv')
 
-var handleItemRemove = function(){
-var liNode2 = document.querySelector('li#task3')
-guestList2.removeChild(liNode2)
-}
 
-rmvNode.addEventListener('click',handleItemRemove)
+
+
+
+
 
 
 
